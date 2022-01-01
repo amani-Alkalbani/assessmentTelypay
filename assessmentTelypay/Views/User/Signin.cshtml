@@ -1,0 +1,44 @@
+﻿
+@model assessmentTelypay.Models.User
+@{
+    ViewBag.Title = "Signin";
+}
+
+<h2>Signin</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+
+        <label>Name</label>
+        @Html.TextBoxFor(x => x.Name, null, new { @class = "form-control", Placeholder = "Enter Name" })
+        @Html.ValidationMessage("Name", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Password</label>
+        @Html.Password("password", null, new { @class = "form-control", Placeholder = "Enter pass" })
+        @Html.ValidationMessageFor(x => x.password, null, new { @class = "text-danger" })
+
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-success">
+            <i class="glyphicon glyphicon-user"></i>
+            Login
+        </button>
+
+    </div>
+
+
+    if (ViewBag.messg != null)
+    {
+        @ViewBag.messg
+    }
+
+    if (ViewBag.userinfo != null)
+    {
+        @ViewBag.userinfo
+
+    }
+}
